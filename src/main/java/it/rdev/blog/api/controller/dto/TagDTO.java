@@ -11,9 +11,8 @@ package it.rdev.blog.api.controller.dto;
  */
 public class TagDTO {
 
-	
 	private String tag;
-	
+
 	/**
 	 * Restituisce il nome del tag.
 	 * 
@@ -22,7 +21,7 @@ public class TagDTO {
 	public String getTag() {
 		return tag;
 	}
-	
+
 	/**
 	 * Setta il nome del tag.
 	 * 

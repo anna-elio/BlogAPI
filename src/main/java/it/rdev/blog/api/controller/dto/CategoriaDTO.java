@@ -12,7 +12,7 @@ package it.rdev.blog.api.controller.dto;
 public class CategoriaDTO {
 
 	private String categoria;
-	
+
 	/**
 	 * Restituisce il nome della categoria.
 	 * 
@@ -21,7 +21,7 @@ public class CategoriaDTO {
 	public String getCategoria() {
 		return categoria;
 	}
-	
+
 	/**
 	 * Setta il nome della categoria.
 	 * 

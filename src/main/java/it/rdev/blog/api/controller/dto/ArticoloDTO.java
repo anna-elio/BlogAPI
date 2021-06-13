@@ -29,7 +29,7 @@ public class ArticoloDTO {
 	private LocalDate data_pubb;
 	private LocalDate data_modifica;
 	private LocalDate data_creazione;
-	
+
 	/**
 	 * Restituisce il titolo dell'articolo.
 	 * 
@@ -38,7 +38,7 @@ public class ArticoloDTO {
 	public String getTitolo() {
 		return titolo;
 	}
-	
+
 	/**
 	 * Setta il titolo dell'articolo.
 	 * 
@@ -47,7 +47,7 @@ public class ArticoloDTO {
 	public void setTitolo(String titolo) {
 		this.titolo = titolo;
 	}
-	
+
 	/**
 	 * Restituisce il sottotitolo dell'articolo.
 	 * 
@@ -56,7 +56,7 @@ public class ArticoloDTO {
 	public String getSottotitolo() {
 		return sottotitolo;
 	}
-	
+
 	/**
 	 * Setta il sottotitolo dell'articolo.
 	 * 
@@ -65,7 +65,7 @@ public class ArticoloDTO {
 	public void setSottotitolo(String sottotitolo) {
 		this.sottotitolo = sottotitolo;
 	}
-	
+
 	/**
 	 * Restituisce il testo dell'articolo.
 	 * 
@@ -74,7 +74,7 @@ public class ArticoloDTO {
 	public String getTesto() {
 		return testo;
 	}
-	
+
 	/**
 	 * Setta il testo dell'articolo.
 	 * 
@@ -83,7 +83,7 @@ public class ArticoloDTO {
 	public void setTesto(String testo) {
 		this.testo = testo;
 	}
-	
+
 	/**
 	 * Restituisce la categoria dell'articolo.
 	 * 
@@ -92,7 +92,7 @@ public class ArticoloDTO {
 	public Categoria getCategoria() {
 		return categoria;
 	}
-	
+
 	/**
 	 * Setta la categoria dell'articolo.
 	 * 
@@ -101,7 +101,7 @@ public class ArticoloDTO {
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
-	
+
 	/**
 	 * Restituisce l'autore dell'articolo.
 	 * 
@@ -110,7 +110,7 @@ public class ArticoloDTO {
 	public User getAutore() {
 		return autore;
 	}
-	
+
 	/**
 	 * Setta l'autore dell'articolo.
 	 * 
@@ -119,7 +119,7 @@ public class ArticoloDTO {
 	public void setAutore(User autore) {
 		this.autore = autore;
 	}
-	
+
 	/**
 	 * Restituisce il set di tag associati all'articolo.
 	 * 
@@ -128,7 +128,7 @@ public class ArticoloDTO {
 	public Set<Tag> getTags() {
 		return tags;
 	}
-	
+
 	/**
 	 * Setta l'insieme di tag da associare all'articolo.
 	 * 
@@ -137,7 +137,7 @@ public class ArticoloDTO {
 	public void setTags(Set<Tag> tags) {
 		this.tags = tags;
 	}
-	
+
 	/**
 	 * Restituisce lo stato dell'articolo (bozza o pubblicato).
 	 * 
@@ -146,7 +146,7 @@ public class ArticoloDTO {
 	public String getStato() {
 		return stato;
 	}
-	
+
 	/**
 	 * Setta lo stato dell'articolo (bozza o pubblicato).
 	 * 
@@ -155,7 +155,7 @@ public class ArticoloDTO {
 	public void setStato(String stato) {
 		this.stato = stato;
 	}
-	
+
 	/**
 	 * Restituisce la data di pubblicazione dell'articolo.
 	 * 
@@ -164,7 +164,7 @@ public class ArticoloDTO {
 	public LocalDate getData_pubb() {
 		return data_pubb;
 	}
-	
+
 	/**
 	 * Setta la data di pubblicazione dell'articolo.
 	 * 
@@ -173,7 +173,7 @@ public class ArticoloDTO {
 	public void setData_pubb(LocalDate data_pubb) {
 		this.data_pubb = data_pubb;
 	}
-	
+
 	/**
 	 * Restituisce la data dell'ultima modifica dell'articolo.
 	 * 
@@ -182,7 +182,7 @@ public class ArticoloDTO {
 	public LocalDate getData_modifica() {
 		return data_modifica;
 	}
-	
+
 	/**
 	 * Setta la data dell'ultima modifica dell'articolo.
 	 * 
@@ -191,7 +191,7 @@ public class ArticoloDTO {
 	public void setData_modifica(LocalDate data_modifica) {
 		this.data_modifica = data_modifica;
 	}
-	
+
 	/**
 	 * Restituisce la data di creazione.
 	 * 
@@ -200,7 +200,7 @@ public class ArticoloDTO {
 	public LocalDate getData_creazione() {
 		return data_creazione;
 	}
-	
+
 	/**
 	 * Setta la data di creazione dell'articolo.
 	 * 

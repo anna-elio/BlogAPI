@@ -10,7 +10,7 @@ import it.rdev.blog.api.config.JwtTokenUtil;
 
 @RestController
 public class TestApiController {
-	
+
 	@Autowired
 	private JwtTokenUtil jwtUtil;
 
@@ -18,11 +18,11 @@ public class TestApiController {
 	public String get() {
 		return "Risorsa Accesibile";
 	}
-	
+
 	@PostMapping({ "/api/test" })
 	public String post(@RequestHeader(name = "Authorization") String token) {
 		String username = null;
-		if(token != null && token.startsWith("Bearer")) {
+		if (token != null && token.startsWith("Bearer")) {
 			token = token.replaceAll("Bearer ", "");
 			username = jwtUtil.getUsernameFromToken(token);
 		}

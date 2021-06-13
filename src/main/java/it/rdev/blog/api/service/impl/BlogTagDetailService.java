@@ -14,6 +14,8 @@ import it.rdev.blog.api.dao.TagDao;
 import it.rdev.blog.api.dao.entity.Tag;
 
 /**
+ * Servizio per il controller TagApiController.
+ * 
  * @author Anna Eliotropio
  *
  */
@@ -22,27 +24,32 @@ public class BlogTagDetailService {
 
 	@Autowired
 	private TagDao tagDao;
-	
-	public Set<TagDTO> findAll(){
-		Iterable<Tag> tags=tagDao.findAll();
+
+	/**
+	 * Cerca tutti i tag presenti nel database.
+	 * 
+	 * @return l'insieme dei tag trovati.
+	 */
+	public Set<TagDTO> findAll() {
+		Iterable<Tag> tags = tagDao.findAll();
 		Set<TagDTO> listaTags = null;
-		if (tags!=null) {
+		if (tags != null) {
 			listaTags = new HashSet<>();
 			for (Tag t : tags) {
-				//trasforma l'entity in DTO
+				// trasforma l'entity in DTO
 				TagDTO tagDTO = new TagDTO();
 				tagDTO.setTag(t.getTag());
 				listaTags.add(tagDTO);
-			} 
+			}
 		}
 		return listaTags;
 	}
-	
+
 	public Tag save(TagDTO tag) {
 		Tag newTag = new Tag();
 		newTag.setTag(tag.getTag());
 		return newTag;
-		
+
 	}
-	
+
 }
