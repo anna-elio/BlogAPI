@@ -1,6 +1,3 @@
-/**
- * 
- */
 package it.rdev.blog.api.dao.entity;
 
 import java.time.LocalDate;
@@ -19,6 +16,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
+ * Classe che modella l'entita' articolo.
+ * 
  * @author Anna Eliotropio
  *
  */
@@ -30,160 +29,236 @@ public class Articolo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	
 	@Column(nullable = false)
 	private String titolo;
+	
 	@Column
 	private String sottotitolo;
+	
 	@Column(nullable = false)
 	private String testo;
+	
 	@ManyToOne
 	@JoinColumn(name = "categoria")
 	private Categoria categoria;
+	
 	@ManyToOne
 	@JoinColumn(name = "autore")
 	private User autore;
+	
 	@ManyToMany
 	@JoinTable(
 			name = "tags_articoli",
 			joinColumns = @JoinColumn(name = "id_articolo"),
 			inverseJoinColumns = @JoinColumn(name = "id_tag"))
-	private Set<Tag> tags = new HashSet<>();
+	private Set<Tag> tags = new HashSet<>(); //hash set perche' non mi serve l'ordine
+	
 	@Column(nullable = false)
 	private String stato;
+	
 	@Column
 	private LocalDate data_pubb;
+	
 	@Column
 	private LocalDate data_modifica;
+	
 	@Column(nullable = false)
 	private LocalDate data_creazione;
+	
 	/**
-	 * @return the id
+	 * Restituisce l'ID dell'articolo.
+	 * 
+	 * @return long id che identifica l'articolo.
 	 */
 	public long getId() {
 		return id;
 	}
+	
 	/**
-	 * @param id the id to set
+	 * Setta l'ID dell'articolo.
+	 * 
+	 * @param id l'ID da settare.
 	 */
 	public void setId(long id) {
 		this.id = id;
 	}
+	
 	/**
-	 * @return the titolo
+	 * Restituisce il titolo dell'articolo.
+	 * 
+	 * @return String che rappresenta il titolo dell'articolo.
 	 */
 	public String getTitolo() {
 		return titolo;
 	}
+	
 	/**
-	 * @param titolo the titolo to set
+	 * Setta il titolo dell'articolo.
+	 * 
+	 * @param titolo il titolo da settare.
 	 */
 	public void setTitolo(String titolo) {
 		this.titolo = titolo;
 	}
+	
 	/**
-	 * @return the sottotitolo
+	 * Restituisce il sottotitolo dell'articolo.
+	 * 
+	 * @return String che rappresenta il sottotitolo dell'articolo.
 	 */
 	public String getSottotitolo() {
 		return sottotitolo;
 	}
+	
 	/**
-	 * @param sottotitolo the sottotitolo to set
+	 * Setta il sottotitolo dell'articolo.
+	 * 
+	 * @param sottotitolo il sottotitolo da settare.
 	 */
 	public void setSottotitolo(String sottotitolo) {
 		this.sottotitolo = sottotitolo;
 	}
+	
 	/**
-	 * @return the testo
+	 * Restituisce il testo dell'articolo.
+	 * 
+	 * @return String che rappresnta il testo dell'articolo.
 	 */
 	public String getTesto() {
 		return testo;
 	}
+	
 	/**
-	 * @param testo the testo to set
+	 * Setta il testo dell'articolo.
+	 * 
+	 * @param testo il testo da settare.
 	 */
 	public void setTesto(String testo) {
 		this.testo = testo;
 	}
+	
 	/**
-	 * @return the categoria
+	 * Restituisce la categoria dell'articolo.
+	 * 
+	 * @return Categoria oggetto che rappresenta la categoria.
 	 */
 	public Categoria getCategoria() {
 		return categoria;
 	}
+	
 	/**
-	 * @param categoria the categoria to set
+	 * Setta la categoria dell'articolo.
+	 * 
+	 * @param categoria la categoria da settare
 	 */
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
+	
 	/**
-	 * @return the autore
+	 * Restituisce l'autore dell'articolo.
+	 * 
+	 * @return User oggetto che rappresenta l'autore.
 	 */
 	public User getAutore() {
 		return autore;
 	}
+	
 	/**
-	 * @param autore the autore to set
+	 * Setta l'autore dell'articolo.
+	 * 
+	 * @param autore l'autore da settare.
 	 */
 	public void setAutore(User autore) {
 		this.autore = autore;
 	}
+	
 	/**
-	 * @return the tags
+	 * Restituisce il set di tag associati all'articolo.
+	 * 
+	 * @return insieme di tag dell'articolo.
 	 */
 	public Set<Tag> getTags() {
 		return tags;
 	}
+	
 	/**
-	 * @param tags the tags to set
+	 * Setta l'insieme di tag da associare all'articolo.
+	 * 
+	 * @param tags l'insieme di tag da settare.
 	 */
 	public void setTags(Set<Tag> tags) {
 		this.tags = tags;
 	}
+	
 	/**
-	 * @return the stato
+	 * Restituisce lo stato dell'articolo (bozza o pubblicato).
+	 * 
+	 * @return String che rappresenta lo stato.
 	 */
 	public String getStato() {
 		return stato;
 	}
+	
 	/**
-	 * @param stato the stato to set
+	 * Setta lo stato dell'articolo (bozza o pubblicato).
+	 * 
+	 * @param stato lo stato da settare.
 	 */
 	public void setStato(String stato) {
 		this.stato = stato;
 	}
+	
 	/**
-	 * @return the data_pubb
+	 * Restituisce la data di pubblicazione dell'articolo.
+	 * 
+	 * @return LocalDate che rappresenta la data di pubblicazione.
 	 */
 	public LocalDate getData_pubb() {
 		return data_pubb;
 	}
+	
 	/**
-	 * @param data_pubb the data_pubb to set
+	 * Setta la data di pubblicazione dell'articolo.
+	 * 
+	 * @param data_pubb la data da settare.
 	 */
 	public void setData_pubb(LocalDate data_pubb) {
 		this.data_pubb = data_pubb;
 	}
+	
 	/**
-	 * @return the data_modifica
+	 * Restituisce la data dell'ultima modifica dell'articolo.
+	 * 
+	 * @return LocalDate che rappresenta la data dell'ultima modifica.
 	 */
 	public LocalDate getData_modifica() {
 		return data_modifica;
 	}
+	
 	/**
-	 * @param data_modifica the data_modifica to set
+	 * Setta la data dell'ultima modifica dell'articolo.
+	 * 
+	 * @param data_modifica la data da settare.
 	 */
 	public void setData_modifica(LocalDate data_modifica) {
 		this.data_modifica = data_modifica;
 	}
+	
 	/**
-	 * @return the data_creazione
+	 * Restituisce la data di creazione.
+	 * 
+	 * @return LocalDate che rappresenta la data di creazione.
 	 */
 	public LocalDate getData_creazione() {
 		return data_creazione;
 	}
+	
 	/**
-	 * @param data_creazione the data_creazione to set
+	 * Setta la data di creazione dell'articolo.
+	 * 
+	 * @param data_creazione la data da settare.
 	 */
 	public void setData_creazione(LocalDate data_creazione) {
 		this.data_creazione = data_creazione;

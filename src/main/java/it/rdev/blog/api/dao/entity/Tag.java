@@ -1,6 +1,3 @@
-/**
- * 
- */
 package it.rdev.blog.api.dao.entity;
 
 import java.util.HashSet;
@@ -19,6 +16,8 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
+ * Classe che modella l'entità tag.
+ * 
  * @author Anna Eliotropio
  *
  */
@@ -30,46 +29,67 @@ public class Tag {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	
 	@Column
 	private String tag;
+	
 	@ManyToMany(
 			mappedBy = "tags", 
 			fetch = FetchType.EAGER, 
 			cascade = CascadeType.PERSIST)
+	
 	@JsonIgnore
-	private Set<Articolo> articoli = new HashSet<>();
+	private Set<Articolo> articoli = new HashSet<>(); //hash set perche' non mi serve l'ordine
+	
 	/**
-	 * @return the id
+	 * Restituisce l'ID del tag.
+	 * 
+	 * @return long id che identifica il tag.
 	 */
 	public long getId() {
 		return id;
 	}
+	
 	/**
-	 * @param id the id to set
+	 * Setta l'ID del tag.
+	 * 
+	 * @param id l'ID da settare.
 	 */
 	public void setId(long id) {
 		this.id = id;
 	}
+	
 	/**
-	 * @return the tag
+	 * Restituisce il nome del tag.
+	 * 
+	 * @return String che rappresenta il tag.
 	 */
 	public String getTag() {
 		return tag;
 	}
+	
 	/**
-	 * @param tag the tag to set
+	 * Setta il nome del tag.
+	 * 
+	 * @param tag il tag da settare.
 	 */
 	public void setTag(String tag) {
 		this.tag = tag;
 	}
+	
 	/**
-	 * @return the articoli
+	 * Restituisce l'insieme di articoli associati al tag.
+	 * 
+	 * @return l'insieme di articoli associati al tag.
 	 */
 	public Set<Articolo> getArticoli() {
 		return articoli;
 	}
+	
 	/**
-	 * @param articoli the articoli to set
+	 * Setta l'insieme di articoli associati al tag.
+	 * 
+	 * @param articoli l'insieme di articoli da settare.
 	 */
 	public void setArticoli(Set<Articolo> articoli) {
 		this.articoli = articoli;
