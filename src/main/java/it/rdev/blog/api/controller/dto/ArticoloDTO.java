@@ -7,7 +7,6 @@ import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
-import it.rdev.blog.api.dao.entity.Tag;
 import it.rdev.blog.api.dao.entity.User;
 
 /**
@@ -21,9 +20,9 @@ public class ArticoloDTO {
 	private String titolo;
 	private String sottotitolo;
 	private String testo;
-	private String categoria;
+	private CategoriaDTO categoria;
 	private User autore;
-	private Set<Tag> tags = new HashSet<>();
+	private Set<TagDTO> tags = new HashSet<>();
 	private String stato;
 	private LocalDateTime data_pubb;
 	private LocalDateTime data_modifica;
@@ -88,7 +87,7 @@ public class ArticoloDTO {
 	 * 
 	 * @return Categoria oggetto che rappresenta la categoria.
 	 */
-	public String getCategoria() {
+	public CategoriaDTO getCategoria() {
 		return categoria;
 	}
 
@@ -97,7 +96,7 @@ public class ArticoloDTO {
 	 * 
 	 * @param categoria la categoria da settare
 	 */
-	public void setCategoria(String categoria) {
+	public void setCategoria(CategoriaDTO categoria) {
 		this.categoria = categoria;
 	}
 
@@ -124,7 +123,7 @@ public class ArticoloDTO {
 	 * 
 	 * @return insieme di tag dell'articolo.
 	 */
-	public Set<Tag> getTags() {
+	public Set<TagDTO> getTags() {
 		return tags;
 	}
 
@@ -133,7 +132,7 @@ public class ArticoloDTO {
 	 * 
 	 * @param tags l'insieme di tag da settare.
 	 */
-	public void setTags(Set<Tag> tags) {
+	public void setTags(Set<TagDTO> tags) {
 		this.tags = tags;
 	}
 

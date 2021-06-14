@@ -29,10 +29,4 @@ public interface CategoriaDetailService {
 	 * @return l'entità salvata.
 	 */
 	Categoria save(CategoriaDTO categoria);
-	/**
-	 * Cerca nel database la categoria specificata.
-	 * @param categoria la categoria da cercare.
-	 * @return CategoriaDTO il transfer object che rappresenta la categoria
-	 */
-	public Categoria findByName(String categoria);
 }

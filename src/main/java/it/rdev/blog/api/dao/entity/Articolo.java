@@ -1,17 +1,17 @@
 package it.rdev.blog.api.dao.entity;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -48,11 +48,10 @@ public class Articolo {
 	@JoinColumn(name = "autore")
 	private User autore;
 	
-	@ManyToMany
-	@JoinTable(
-			name = "tags_articoli",
-			joinColumns = @JoinColumn(name = "id_articolo"),
-			inverseJoinColumns = @JoinColumn(name = "id_tag"))
+	@ManyToMany(
+			mappedBy = "articoli", 
+			fetch = FetchType.EAGER, 
+			cascade = CascadeType.PERSIST)
 	private Set<Tag> tags = new HashSet<>(); //hash set perche' non mi serve l'ordine
 	
 	@Column(nullable = false)

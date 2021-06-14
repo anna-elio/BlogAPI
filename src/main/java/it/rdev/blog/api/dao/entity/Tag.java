@@ -10,6 +10,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
@@ -34,11 +36,11 @@ public class Tag {
 	@Column
 	private String tag;
 	
-	@ManyToMany(
-			mappedBy = "tags", 
-			fetch = FetchType.EAGER, 
-			cascade = CascadeType.PERSIST)
-	
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	@JoinTable(
+			name = "tags_articoli",
+			joinColumns = @JoinColumn(name = "id_tag"),
+			inverseJoinColumns = @JoinColumn(name = "id_articolo"))
 	@JsonIgnore
 	private Set<Articolo> articoli = new HashSet<>(); //hash set perche' non mi serve l'ordine
 	

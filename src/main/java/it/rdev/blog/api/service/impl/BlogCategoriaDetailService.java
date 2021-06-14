@@ -61,10 +61,4 @@ public class BlogCategoriaDetailService implements CategoriaDetailService {
 		catDTO.setCategoria(c.getCategoria());
 		return catDTO;
 	}
-
-	@Override
-	public Categoria findByName(String categoria) {
-		Categoria cat = catDao.findByCategoria(categoria);
-		return cat;
-	}
 }
