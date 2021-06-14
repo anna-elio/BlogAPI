@@ -3,11 +3,10 @@
  */
 package it.rdev.blog.api.controller.dto;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
-import it.rdev.blog.api.dao.entity.Categoria;
 import it.rdev.blog.api.dao.entity.Tag;
 import it.rdev.blog.api.dao.entity.User;
 
@@ -22,13 +21,13 @@ public class ArticoloDTO {
 	private String titolo;
 	private String sottotitolo;
 	private String testo;
-	private Categoria categoria;
+	private String categoria;
 	private User autore;
 	private Set<Tag> tags = new HashSet<>();
 	private String stato;
-	private LocalDate data_pubb;
-	private LocalDate data_modifica;
-	private LocalDate data_creazione;
+	private LocalDateTime data_pubb;
+	private LocalDateTime data_modifica;
+	private LocalDateTime data_creazione;
 
 	/**
 	 * Restituisce il titolo dell'articolo.
@@ -89,7 +88,7 @@ public class ArticoloDTO {
 	 * 
 	 * @return Categoria oggetto che rappresenta la categoria.
 	 */
-	public Categoria getCategoria() {
+	public String getCategoria() {
 		return categoria;
 	}
 
@@ -98,7 +97,7 @@ public class ArticoloDTO {
 	 * 
 	 * @param categoria la categoria da settare
 	 */
-	public void setCategoria(Categoria categoria) {
+	public void setCategoria(String categoria) {
 		this.categoria = categoria;
 	}
 
@@ -159,9 +158,9 @@ public class ArticoloDTO {
 	/**
 	 * Restituisce la data di pubblicazione dell'articolo.
 	 * 
-	 * @return LocalDate che rappresenta la data di pubblicazione.
+	 * @return LocalDateTime che rappresenta la data di pubblicazione.
 	 */
-	public LocalDate getData_pubb() {
+	public LocalDateTime getData_pubb() {
 		return data_pubb;
 	}
 
@@ -170,16 +169,16 @@ public class ArticoloDTO {
 	 * 
 	 * @param data_pubb la data da settare.
 	 */
-	public void setData_pubb(LocalDate data_pubb) {
+	public void setData_pubb(LocalDateTime data_pubb) {
 		this.data_pubb = data_pubb;
 	}
 
 	/**
 	 * Restituisce la data dell'ultima modifica dell'articolo.
 	 * 
-	 * @return LocalDate che rappresenta la data dell'ultima modifica.
+	 * @return LocalDateTime che rappresenta la data dell'ultima modifica.
 	 */
-	public LocalDate getData_modifica() {
+	public LocalDateTime getData_modifica() {
 		return data_modifica;
 	}
 
@@ -188,16 +187,16 @@ public class ArticoloDTO {
 	 * 
 	 * @param data_modifica la data da settare.
 	 */
-	public void setData_modifica(LocalDate data_modifica) {
+	public void setData_modifica(LocalDateTime data_modifica) {
 		this.data_modifica = data_modifica;
 	}
 
 	/**
 	 * Restituisce la data di creazione.
 	 * 
-	 * @return LocalDate che rappresenta la data di creazione.
+	 * @return LocalDateTime che rappresenta la data di creazione.
 	 */
-	public LocalDate getData_creazione() {
+	public LocalDateTime getData_creazione() {
 		return data_creazione;
 	}
 
@@ -206,7 +205,7 @@ public class ArticoloDTO {
 	 * 
 	 * @param data_creazione la data da settare.
 	 */
-	public void setData_creazione(LocalDate data_creazione) {
+	public void setData_creazione(LocalDateTime data_creazione) {
 		this.data_creazione = data_creazione;
 	}
 }

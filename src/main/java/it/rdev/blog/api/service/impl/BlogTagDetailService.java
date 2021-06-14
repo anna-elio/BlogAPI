@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import it.rdev.blog.api.controller.dto.TagDTO;
 import it.rdev.blog.api.dao.TagDao;
 import it.rdev.blog.api.dao.entity.Tag;
+import it.rdev.blog.api.service.TagDetailService;
 
 /**
  * Servizio per il controller TagApiController.
@@ -20,36 +21,47 @@ import it.rdev.blog.api.dao.entity.Tag;
  *
  */
 @Service
-public class BlogTagDetailService {
+public class BlogTagDetailService implements TagDetailService {
 
 	@Autowired
 	private TagDao tagDao;
 
 	/**
-	 * Cerca tutti i tag presenti nel database.
-	 * 
-	 * @return l'insieme dei tag trovati.
+	 * @inheritDoc
 	 */
+	@Override
 	public Set<TagDTO> findAll() {
 		Iterable<Tag> tags = tagDao.findAll();
 		Set<TagDTO> listaTags = null;
 		if (tags != null) {
 			listaTags = new HashSet<>();
 			for (Tag t : tags) {
-				// trasforma l'entity in DTO
-				TagDTO tagDTO = new TagDTO();
-				tagDTO.setTag(t.getTag());
-				listaTags.add(tagDTO);
+				listaTags.add(toDto(t));
 			}
 		}
 		return listaTags;
 	}
 
+	/**
+	 * @inheritDoc
+	 */
+	@Override
 	public Tag save(TagDTO tag) {
 		Tag newTag = new Tag();
 		newTag.setTag(tag.getTag());
-		return newTag;
+		return tagDao.save(newTag);
 
 	}
 
+	/**
+	 * Trasforma l'entity {@link Tag} in DTO.
+	 * 
+	 * @param t l'entita' da trasformare.
+	 * @return il DTO dell'entita'.
+	 */
+	private TagDTO toDto(Tag t) {
+		TagDTO tagDTO = new TagDTO();
+		tagDTO.setTag(t.getTag());
+		return tagDTO;
+	}
 }

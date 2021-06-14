@@ -11,7 +11,7 @@ import it.rdev.blog.api.dao.entity.User;
  *
  */
 @Repository
-public interface UserDao extends CrudRepository<User, Integer> {
+public interface UserDao extends CrudRepository<User, Long> {
 	/**
 	 * Cerca l'utente in base al suo username.
 	 * 

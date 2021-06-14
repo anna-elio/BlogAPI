@@ -16,7 +16,10 @@ import it.rdev.blog.api.controller.dto.CategoriaDTO;
 import it.rdev.blog.api.service.impl.BlogCategoriaDetailService;
 
 /**
- * Controller classe categoria.
+ * Controller classe categoria. <br>
+ * Contiene gli endpoint delle categorie:
+ * 
+ * {@code path:/api/categoria}.
  * 
  * @author Anna Eliotropio
  *
@@ -25,23 +28,22 @@ import it.rdev.blog.api.service.impl.BlogCategoriaDetailService;
 public class CategoriaApiController {
 
 	@Autowired
-	private BlogCategoriaDetailService catDetailService;
+	private BlogCategoriaDetailService categoriaDetailService;
 
 	/**
 	 * Restituisce tutte le categorie presenti nel database.
 	 * 
-	 * @return Status Code 200 se sono stati restituite le categorie.<br>
-	 *         Status Code 404 se non e' presente alcuna categorias all’interno del
-	 *         database.
+	 * @return <b>Status Code 200</b> se sono stati restituite le categorie.<br>
+	 *         <b>Status Code 404</b> se non e' presente alcuna categorias
+	 *         all’interno del database.
 	 */
 	@RequestMapping(value = "/api/categoria", method = RequestMethod.GET)
 	public ResponseEntity<?> getAllCat() {
-		Set<CategoriaDTO> categorie = catDetailService.findAll();
+		Set<CategoriaDTO> categorie = categoriaDetailService.findAll();
 		if (categorie != null && !categorie.isEmpty()) {
-			return ResponseEntity.ok(HttpStatus.OK);
+			return ResponseEntity.ok(categorie);
 		}
 
-		return ResponseEntity.ok(HttpStatus.NOT_FOUND);
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
-
 }

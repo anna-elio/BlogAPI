@@ -1,6 +1,7 @@
 package it.rdev.blog.api.dao.entity;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -58,13 +59,13 @@ public class Articolo {
 	private String stato;
 	
 	@Column
-	private LocalDate data_pubb;
+	private LocalDateTime data_pubb;
 	
 	@Column
-	private LocalDate data_modifica;
+	private LocalDateTime data_modifica;
 	
 	@Column(nullable = false)
-	private LocalDate data_creazione;
+	private LocalDateTime data_creazione;
 	
 	/**
 	 * Restituisce l'ID dell'articolo.
@@ -215,7 +216,7 @@ public class Articolo {
 	 * 
 	 * @return LocalDate che rappresenta la data di pubblicazione.
 	 */
-	public LocalDate getData_pubb() {
+	public LocalDateTime getData_pubb() {
 		return data_pubb;
 	}
 	
@@ -224,7 +225,7 @@ public class Articolo {
 	 * 
 	 * @param data_pubb la data da settare.
 	 */
-	public void setData_pubb(LocalDate data_pubb) {
+	public void setData_pubb(LocalDateTime data_pubb) {
 		this.data_pubb = data_pubb;
 	}
 	
@@ -233,7 +234,7 @@ public class Articolo {
 	 * 
 	 * @return LocalDate che rappresenta la data dell'ultima modifica.
 	 */
-	public LocalDate getData_modifica() {
+	public LocalDateTime getData_modifica() {
 		return data_modifica;
 	}
 	
@@ -242,7 +243,7 @@ public class Articolo {
 	 * 
 	 * @param data_modifica la data da settare.
 	 */
-	public void setData_modifica(LocalDate data_modifica) {
+	public void setData_modifica(LocalDateTime data_modifica) {
 		this.data_modifica = data_modifica;
 	}
 	
@@ -251,7 +252,7 @@ public class Articolo {
 	 * 
 	 * @return LocalDate che rappresenta la data di creazione.
 	 */
-	public LocalDate getData_creazione() {
+	public LocalDateTime getData_creazione() {
 		return data_creazione;
 	}
 	
@@ -260,7 +261,7 @@ public class Articolo {
 	 * 
 	 * @param data_creazione la data da settare.
 	 */
-	public void setData_creazione(LocalDate data_creazione) {
+	public void setData_creazione(LocalDateTime data_creazione) {
 		this.data_creazione = data_creazione;
 	}
 	

@@ -16,7 +16,11 @@ import it.rdev.blog.api.controller.dto.TagDTO;
 import it.rdev.blog.api.service.impl.BlogTagDetailService;
 
 /**
- * Controller classe Tag.
+ * Controller classe Tag.<br>
+ * Contiene gli endpoint dei tag:
+ * 
+ * {@code path:/api/tag}.
+ * 
  * 
  * @author Anna Eliotropio
  *
@@ -30,8 +34,8 @@ public class TagApiController {
 	/**
 	 * Restituisce tutti i tag presenti nel database.
 	 * 
-	 * @return Status Code 200 se sono stati restituiti i tag.<br>
-	 *         Status Code 404 se non e' presente alcun tag all’interno del
+	 * @return <b>Status Code 200</b> se sono stati restituiti i tag.<br>
+	 *         <b>Status Code 404</b> se non e' presente alcun tag all’interno del
 	 *         database.
 	 */
 	@RequestMapping(value = "/api/tag", method = RequestMethod.GET)
@@ -40,15 +44,9 @@ public class TagApiController {
 		Set<TagDTO> tags = tagDetailService.findAll();
 
 		if (tags != null && tags.size() != 0) {
-			return ResponseEntity.ok(HttpStatus.OK);
+			return new ResponseEntity<>(tags, HttpStatus.OK);
 		}
 
-		return ResponseEntity.ok(HttpStatus.NOT_FOUND);
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
-
-	// @RequestMapping(value = "/api/tag", method = RequestMethod.POST)
-	// public ResponseEntity<?> saveTag(@RequestBody TagDTO tag) {
-	// return ResponseEntity.ok(tagDetailService.save(tag));
-	// }
-
 }
